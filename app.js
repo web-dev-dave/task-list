@@ -31,14 +31,17 @@ function addTask(e) {
   // Add class
   link.className = 'delete-item secondary-content'
   // Add icon html
-  link.innerHTML = '<i class="fa fa-remove></i>'
+  link.innerHTML = '<i class="fas fa-trash"></i>'
   // Append the link to li
   li.appendChild(link)
 
   // Append li to ul
-console.log(li)
+  console.log(li)
   taskList.appendChild(li)
 
+
+  // Clear input
+  taskInput.value = ''
 
   e.preventDefault();
 }
