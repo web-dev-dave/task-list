@@ -16,6 +16,8 @@ function loadEventListeners() {
   taskList.addEventListener('click', removeTask)
   // Clear all tasks
   clearBtn.addEventListener('click', clearTasks)
+  // Filter tasks
+  filter.addEventListener('keyup', filterTasks)
 }
 
 // Add Task
@@ -40,7 +42,7 @@ function addTask(e) {
   li.appendChild(link)
 
   // Append li to ul
-  console.log(li)
+  // console.log(li)
   taskList.appendChild(li)
 
 
@@ -53,7 +55,7 @@ function addTask(e) {
 // Remove Task
 function removeTask(e) {
   if(e.target.parentElement.classList.contains('delete-item')){
-    console.log(e.target)
+    // console.log(e.target)
     if(confirm('Are you sure?')) {
       e.target.parentElement.parentElement.remove()
     }
@@ -65,4 +67,22 @@ function clearTasks(e) {
   while(taskList.firstChild) {
     taskList.removeChild(taskList.firstChild)
   }
+}
+
+// Filter tasks
+function filterTasks(e) {
+  // console.log(e.target)
+  const text = e.target.value.toLowerCase()
+
+  // console.log(text)
+  document.querySelectorAll('.collection-item').forEach(task => {
+    const item = task.firstChild.textContent
+    // console.log(item)
+    if(item.toLowerCase().indexOf(text) !== -1) {
+      console.log(item)
+      task.style.display = 'block'
+    } else {
+      task.style.display = 'none'
+    }
+  });
 }
