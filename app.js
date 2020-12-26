@@ -44,11 +44,27 @@ function addTask(e) {
   // Append li to ul
   taskList.appendChild(li)
 
+  // Store in Local Storage
+  storeTaskInLocalStorage(taskInput.value)
+
 
   // Clear input
   taskInput.value = ''
 
   e.preventDefault();
+}
+
+// Store task
+function storeTaskInLocalStorage(task){
+  let tasks;
+
+  localStorage.getItem('tasks') === null
+    ? tasks = []
+    : tasks = JSON.parse(localStorage.getItem('tasks'))
+
+  tasks.push(task)
+
+  localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
 // Remove Task
