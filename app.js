@@ -139,7 +139,7 @@ function clearTasks(e) {
 }
 
 // Clear tasks from ls
-function clearTasksFromLocalStorage(){
+function clearTasksFromLocalStorage() {
   localStorage.clear()
 }
 
