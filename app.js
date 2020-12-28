@@ -24,8 +24,10 @@ function loadEventListeners() {
 
 // Get Tasks from local storage
 function getTasks() {
+  // Initilaize a tasks variable
   let tasks;
 
+  // 
   localStorage.getItem('tasks') === null
     ? tasks = []
     : tasks = JSON.parse(localStorage.getItem('tasks'))
@@ -87,14 +89,18 @@ function addTask(e) {
 
 // Store task
 function storeTaskInLocalStorage(task){
+  // Initilaize a tasks variable
   let tasks;
 
+  // first get the key 'tasks' if it equals null tasks is an empty array otherwise parse the value and that becomes the value for tasks
   localStorage.getItem('tasks') === null
     ? tasks = []
     : tasks = JSON.parse(localStorage.getItem('tasks'))
 
+  // push the task passed in as an argument onto the 'tasks' variable
   tasks.push(task)
 
+  // set the key 'tasks' with the new tasks variable
   localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
